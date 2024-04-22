@@ -31,7 +31,6 @@
         <div class="header__div">
             <div style="text-align: center;">
                 <h1 class="header__titulo lemon">Rauha!</h1>
-                <span class="">Hola</span>
                 <p class="header__subtitulo salsa">Maquillaje y cuidado personal</p>
             </div>
         </div>        
