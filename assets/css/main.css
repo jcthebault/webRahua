@@ -1,0 +1,38 @@
+/*GLOBALES*/
+html{font-size: 62.5%; box-sizing: border-box;}
+body{font-size: 16px;}
+*,*:before,*:after{margin: 0; padding: 0; box-sizing: inherit;}
+/*HEADINGS*/
+h1{font-size: 4.8rem;}
+h2{font-size: 3.8rem;}
+h3{font-size: 2.8rem;}
+h4{font-size: 1.8rem;}
+/*ENLACE*/
+a{text-decoration: none;}
+span{color: white;}
+p{color: white;}
+/*PERSONALIZADAS*/
+:root{
+    /*COLORES*/
+    --fondo: rgba(243, 162, 199, 0.384);
+    --enlaces: #f5c5c5d0;
+    --hover-enlaces:#e7a3ae;
+    --blanco: #ffffff;
+    --negro: #000000;
+    --sombra: #492a38;
+}
+/*FUENTES PARA DISEÑO*/
+/*Lemon - Titulo*/
+.lemon{font-family: "Lemon", serif;} 
+/*Salsa - Subtitulo*/
+.salsa{font-family: "Salsa", cursive;} 
+/*Ubuntu - Parrafos*/
+.ubuntu {font-family: "Ubuntu", sans-serif;}
+/*Oswald Titulos Main*/
+.oswald{font-family: "Oswald", sans-serif;}
+
+/*FUENTES PARA FORMULARIO Y BOTONES*/
+/*Open Sans - Formularios*/
+.open-sans {font-family: "Open Sans", sans-serif;}
+/*Anta - Botones*/
+.anta-regular {font-family: "Anta", sans-serif;}

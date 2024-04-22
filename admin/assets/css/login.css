@@ -1,0 +1,49 @@
+/*Fondo del documento*/
+html{
+    background: radial-gradient(ellipse at right bottom, #12ca7456 20%, #991699d3, #c0080881 90%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; 
+    padding: 2rem;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    border-radius: 1rem;
+    background-color: aqua;
+    width: 30rem;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+.header, .main{
+    padding: 2rem auto;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+.form_input{
+    width: 20rem;
+    margin: 1rem auto;
+    height: 4rem;
+    text-align: center;
+    border-radius: 1rem;
+}
+.btn_admin{
+    margin: 1rem;
+}
+.form_buttom{
+    width: 15rem;
+    height: 4rem;
+    border-radius: 1rem;
+}
