@@ -37,7 +37,6 @@
                 <a class="navegacion__enlaces--link navegador__enlaces--hover" href="lista_pedidos.php">pedidos</a>
                 <a class="navegacion__enlaces--link navegador__enlaces--hover" href="ganancias.php">montos</a>
                 <a class="navegacion__enlaces--link navegador__enlaces--hover" href="novedades.php">novedades</a>
-
                 <a class="navegacion__enlaces--link navegador__enlaces--hover" href="sorteos.php">sorteos</a>
                 <a class="navegacion__enlaces--link navegador__enlaces--hover" href="avisos.php">avisos</a>
             </div>
@@ -48,25 +47,42 @@
             <div class="main__section">
                 <section class="section__productos">
                     <h2 class="section__titulo">productos</h2>
+                    <div class="productos_totales">
+                        <div class="vendidos">
+                            <h4>Productos vendidos</h4>
+                            <div class="scroll_general">
+
+                            </div>
+                        </div>
+                        <div class="sinStock">
+                            <h4>Productos sin Stock</h4>
+                            <div class="scroll_general">
+                                
+                            </div>
+                        </div>
+                        <div class="reponerStock">
+                            <h4>Pendientes de reponer</h4>
+                            <div class="scroll_general">
+                                
+                            </div>
+                        </div>
+                    </div>
                 </section>
                 <section class="section__pedidos">
-                    <h2 class="section__titulo">pedidos</h2>
+                    <h2 class="section__titulo">pedidos pendientes</h2>
+
                 </section>
                 <section class="section__montos">
                     <h2 class="section__titulo">gastos y ganancias</h2>
+                    <div class="contenedor_grid">
+                        <div class="gastos">
+                            <h4>gasto total</h4>
+                        </div>
+                        <div class="ganancia">
+                            <h4>ganancias</h4>
+                        </div>
+                    </div>
                 </section>
-            </div>
-            <hr>
-            <div class="main__articulos">
-                <article class="articulo__novedades">
-                    <h3 class="articulo__titulo">Novedades</h3>
-                </article>
-                <article class="articulo__nuevos">
-                    <h3 class="articulo__titulo">productos nuevos</h3>
-                </article>
-                <article class="articulo__sorteos">
-                    <h3 class="articulo__titulo">sorteos</h3>
-                </article>
             </div>
         </main>
     </div>

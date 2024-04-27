@@ -33,7 +33,7 @@ html{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     background-color: rgb(143, 89, 145);
-    height: 40rem;
+    height: 60rem;
 }
 .section__productos,
 .section__pedidos,
@@ -49,6 +49,12 @@ html{
     grid-row: 1 / 2;
     grid-column: 1 / 3;
 }
+/*INTERNO - PRODUCTOS*/
+.productos_totales{
+    display: flex;
+    justify-content: space-evenly;
+
+}
 .section__pedidos{
     grid-row: 2 / 3;
     grid-column: 1 / 3;
@@ -57,13 +63,11 @@ html{
     grid-row: 1 / 3;
     grid-column: 3 / 4;
 }
-.main__articulos{
+/*INTERNOS - MONTOS*/
+.contenedor_grid{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    background-color: rgb(143, 89, 145);
-    height: 30rem;
+    grid-row: 50%;
 }
-
 .contenedor__footer{
     background-color: rgb(143, 89, 145);
     margin: 1rem auto;
@@ -161,7 +165,33 @@ html{
     width: 25rem;
 }
 
+/*productos_index*/
+/*pedidos_index*/
+/*montos_index*/
+/*novedades_index*/
+.main_main{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.form_table_cont{
+    grid-column: 2 / 4;
+}
+.form_novedades{
+    margin: 1rem;
+    padding: 1rem;
+    width: 30%;   
+}
 
+.titulo_importante input{
+    padding: 1rem;
+    width: 100%;
+}
+.cuerpo_importante{
+    margin-top: 1rem;
+    width: 100%;
+}
+/*sorteos_index*/
+/*avisos_index*/
 /*BOTONES*/
 /*IMPUTS*/
 input[type=number]::-webkit-inner-spin-button, 

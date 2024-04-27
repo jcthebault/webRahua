@@ -7,16 +7,13 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Anta&family=Lemon&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Salsa&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anta&family=Lemon&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Salsa&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/general.css">
     <!-- SCRIPTS -->
-    <script src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/carga_producto.js"></script>
     <script src="../assets/js/editar_producto.js"></script>
@@ -52,19 +49,19 @@
             <div class="form_prod">
                 <h3>Carga de Productos</h3>
                 <?php
-                    include '../backend/php/conn.php';
+                include '../backend/php/conn.php';
+                // Obtener el último número de producto cargado
+                $sqlUltimoNumero = "SELECT MAX(id_prod) AS last_id FROM stock";
+                $resultadoUltimoNumero = $conexion->query($sqlUltimoNumero);
+                if ($resultadoUltimoNumero->num_rows > 0) {
+                    $rowUltimoNumero = $resultadoUltimoNumero->fetch_assoc();
                     // Obtener el último número de producto cargado
-                        $sqlUltimoNumero = "SELECT MAX(id_prod) AS last_id FROM stock";
-                        $resultadoUltimoNumero = $conexion->query($sqlUltimoNumero);
-                        if ($resultadoUltimoNumero->num_rows > 0) {
-                            $rowUltimoNumero = $resultadoUltimoNumero->fetch_assoc();
-                            // Obtener el último número de producto cargado
-                            $ultimoNumero = $rowUltimoNumero['last_id'];
-                            // Mostrar el último número de producto en el HTML
-                            echo "<p>El último número de producto cargado es: $ultimoNumero</p>";
-                        } else {
-                            echo "No se encontraron resultados.";
-                        }
+                    $ultimoNumero = $rowUltimoNumero['last_id'];
+                    // Mostrar el último número de producto en el HTML
+                    echo "<p>El último número de producto cargado es: $ultimoNumero</p>";
+                } else {
+                    echo "No se encontraron resultados.";
+                }
                 ?>
                 <form class="grid_form" action="../backend/php/script_carga_producto.php" method="post" enctype="multipart/form-data">
                     <!--
@@ -104,38 +101,38 @@
                 if ($resultado->num_rows > 0) {
                     // Comienza la tabla HTML
                     echo '<table class="form_table">';
-                        echo '<div class= "thead_background">';
-                            echo '<thead class="thead">';
-                                echo '<tr>';
-                                    echo '<th>ID</th>';
-                                    echo '<th>Imagen</th>';
-                                    echo '<th>Nombre</th>';
-                                    echo '<th>Descripción</th>';
-                                    echo '<th>Precio</th>';
-                                    echo '<th>Cantidad</th>';
-                                    echo '<th>Editar</th>';
-                                    echo '</tr>';
-                            echo '</thead>';
-                        echo '</div>';
-                        echo '<div class= "tbody_scroll">';
-                            echo '<tbody class="tbody">';
-                                while ($producto = $resultado->fetch_assoc()) {
-                                    echo '<tr class="trbody">';
-                                        echo '<td style="text-align:center;">' . $producto['id_prod'] . '</td>';
-                                        echo '<td style="text-align:center;">';
-                                        $icod = base64_encode($producto['image_prod']);
-                                        $img = '<img class="contenedor_php--imagen" src="data:image/jpeg;base64,' . $icod . '" alt="' . $producto['nombre_prod'] . '">';
-                                        echo $img;
-                                        echo '</td>';
-                                        echo '<td style="text-align:center;">' . $producto['nombre_prod'] . '</td>';
-                                        echo '<td style="text-align:justify;">' . $producto['descripcion_prod'] . '</td>';
-                                        echo '<td style="text-align:center;">$' . $producto['precio_prod'] . '</td>';
-                                        echo '<td style="text-align:center;">' . $producto['cantidad_prod'] . ' unidad/es</td>';
-                                        echo '<td style="text-align:center;"><button class="btn_general" onclick="openForm()">Editar</button></td>';
-                                    echo '</tr>';
-                                }
-                            echo '</tbody>';
-                        echo '</div>';
+                    echo '<div class= "thead_background">';
+                    echo '<thead class="thead">';
+                    echo '<tr>';
+                    echo '<th>ID</th>';
+                    echo '<th>Imagen</th>';
+                    echo '<th>Nombre</th>';
+                    echo '<th>Descripción</th>';
+                    echo '<th>Precio</th>';
+                    echo '<th>Cantidad</th>';
+                    echo '<th>Editar</th>';
+                    echo '</tr>';
+                    echo '</thead>';
+                    echo '</div>';
+                    echo '<div class= "tbody_scroll">';
+                    echo '<tbody class="tbody">';
+                    while ($producto = $resultado->fetch_assoc()) {
+                        echo '<tr class="trbody">';
+                        echo '<td style="text-align:center;">' . $producto['id_prod'] . '</td>';
+                        echo '<td style="text-align:center;">';
+                        $icod = base64_encode($producto['image_prod']);
+                        $img = '<img class="contenedor_php--imagen" src="data:image/jpeg;base64,' . $icod . '" alt="' . $producto['nombre_prod'] . '">';
+                        echo $img;
+                        echo '</td>';
+                        echo '<td style="text-align:center;">' . $producto['nombre_prod'] . '</td>';
+                        echo '<td style="text-align:justify;">' . $producto['descripcion_prod'] . '</td>';
+                        echo '<td style="text-align:center;">$' . $producto['precio_prod'] . '</td>';
+                        echo '<td style="text-align:center;">' . $producto['cantidad_prod'] . ' unidad/es</td>';
+                        echo '<td style="text-align:center;"><button class="btn_general" onclick="openForm()">Editar</button></td>';
+                        echo '</tr>';
+                    }
+                    echo '</tbody>';
+                    echo '</div>';
                     echo '</table>';
                 } else {
                     echo "No se encontraron registros en la tabla 'stock'.";
@@ -179,7 +176,7 @@
     <div class="contenedor__footer">
         <footer class="footer">
             <p class="footer__parrafo">Todos los derechos reservados<span class="footer__span">Y la queso</span></p>
-            
+
         </footer>
     </div>
 

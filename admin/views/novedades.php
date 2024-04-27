@@ -7,16 +7,13 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Anta&family=Lemon&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Salsa&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anta&family=Lemon&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Salsa&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/general.css">
     <!-- SCRIPTS -->
-    <script src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="../assets/js/main.js"></script>
     <title>Admin-Rauha!</title>
 </head>
@@ -46,48 +43,55 @@
         </nav>
     </div>
     <main class="main_main">
-            <form action="../backend/php/script_carga_novedad.php" method="post">   
+        <div class="form_cont_form">
+            <form class="form_novedades" action="../backend/php/script_carga_novedad.php" method="post">
                 <div class="titulo_importante">
                     <input type="text" name="novedad_1" id="novedad_1" placeholder="Ingrese el titulo">
                 </div>
                 <div class="cuerpo_importante">
-                    <textarea name="novedad_2" id="novedad_2" cols="30" rows="10"></textarea>
+                    <textarea name="novedad_2" id="novedad_2" cols="65" rows="10"></textarea>
                 </div>
                 <div class="btn_importante">
                     <button>CARGAR</button>
                 </div>
             </form>
+        </div>
+        <div class="form_table_cont">
             <?php
-                include '../backend/php/script_lista_novedad.php';
-                if ($resultado->num_rows > 0) {
-                    // Comienza la tabla HTML
+            include '../backend/php/script_lista_novedad.php';
+            if ($resultado->num_rows > 0) {
+                // Comienza la tabla HTML
+                echo '<div class="flex_table">';
                     echo '<table class="form_table">';
-                        echo '<div class= "thead_background">';
-                            echo '<thead class="thead">';
-                                echo '<tr>';
-                                    echo '<th>titulo</th>';
-                                    echo '<th>cuerpo</th>';
-                                    echo '<th>opcion</th>';
-                                echo '</tr>';
-                            echo '</thead>';
-                        echo '</div>';
-                        echo '<div class= "tbody_scroll">';
-                            echo '<tbody class="tbody">';
-                                while ($producto = $resultado->fetch_assoc()) {
-                                    echo '<tr class="trbody">';
-                                        echo '<td style="text-align:center;">' . $producto['titulo_novedad'] . '</td>';
-                                        echo '<td style="text-align:center;">' . $producto['cuerpo_novedad'] . '</td>';
-                                        echo '<td style="text-align:center;"><button class="btn_general"">Editar</button></td>';
-                                    echo '</tr>';
-                                }
-                            echo '</tbody>';
-                        echo '</div>';
+                    echo '<div class= "thead_background">';
+                    echo '<thead class="thead">';
+                    echo '<tr>';
+                    echo '<th>titulo</th>';
+                    echo '<th>cuerpo</th>';
+                    echo '<th>opcion</th>';
+                    echo '</tr>';
+                    echo '</thead>';
+                    echo '</div>';
+                    echo '<div class= "tbody_scroll">';
+                    echo '<tbody class="tbody">';
+                    while ($producto = $resultado->fetch_assoc()) {
+                        echo '<tr class="trbody">';
+                        echo '<td style="text-align:center;">' . $producto['titulo_novedad'] . '</td>';
+                        echo '<td style="text-align:center;">' . $producto['cuerpo_novedad'] . '</td>';
+                        echo '<td style="text-align:center;"><button class="btn_general"">Editar</button></td>';
+                        echo '</tr>';
+                    }
+                    echo '</tbody>';
+                    echo '</div>';
                     echo '</table>';
-                } else {
-                    echo "No se encontraron registros en la tabla 'stock'.";
-                }
-                ?>
-        </main>
+                echo '</div>';
+                
+            } else {
+                echo "No se encontraron registros en la tabla 'stock'.";
+            }
+            ?>
+        </div>
+    </main>
     <div class="contenedor__footer">
         <footer class="footer">
             <p class="footer__parrafo">Todos los derechos reservados</p>
