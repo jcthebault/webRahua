@@ -125,25 +125,57 @@ html{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
-.form_table_cont{
-    grid-column: 2 / 4;
-}
-.form_novedades{
+.novedades, .sorteos, .importante{
     margin: 1rem;
-    padding: 1rem;
-    width: 30%;   
+}
+.div_formulario{
+    background-color: rgb(82, 50, 92);
+    border-radius: 1rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.div_formulario h4, form{
+    text-align: center;
+    padding:0 1rem;
+}
+.div_formulario input, textarea{
+    width: 100%;
 }
 
-.titulo_importante input{
+.flex_table{
+    background-color: rgb(143, 89, 145);
+}
+/*SCROLL TABLES*/
+.scroll_tables{
+    background-color: rgb(143, 89, 145);
+    height: 70rem;
     padding: 1rem;
-    width: 100%;
 }
-.cuerpo_importante{
-    margin-top: 1rem;
-    width: 100%;
+.scroll_tables {
+    border-radius: 1rem;
+    height: 55rem; /* Altura deseada */
+    overflow-y: auto; /* Habilitar scroll vertical cuando sea necesario */
+    position: relative; /* Asegura que los elementos absolutos sean relativos a este contenedor */
 }
-/*sorteos_index*/
-/*avisos_index*/
+.thead tr{
+    color: black;
+    background-color: white; /* Ajusta el color de fondo para que se vea bien */
+}
+
+.thead {
+    position: sticky; /* Hace que el encabezado se quede fijo */
+    top: 0; /* Ancla el encabezado en la parte superior */
+    z-index: 1; /* Asegura que el encabezado esté por encima del contenido de la tabla */
+}
+
+.scroll_tables::-webkit-scrollbar {
+    width: 1rem;
+}
+
+.scroll_tables::-webkit-scrollbar-thumb {
+    background: rgba(139, 60, 150, 0.712);
+    border-radius: 1rem;
+}
 /*BOTONES*/
 /*IMPUTS*/
 input[type=number]::-webkit-inner-spin-button, 

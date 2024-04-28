@@ -36,8 +36,6 @@
                 <a class="navegacion__enlaces--link navegador__enlaces--hover" href="lista_pedidos.php">pedidos</a>
                 <a class="navegacion__enlaces--link navegador__enlaces--hover" href="ganancias.php">montos</a>
                 <a class="navegacion__enlaces--link navegador__enlaces--hover" href="novedades.php">novedades</a>
-                <a class="navegacion__enlaces--link navegador__enlaces--hover" href="sorteos.php">sorteos</a>
-                <a class="navegacion__enlaces--link navegador__enlaces--hover" href="avisos.php">avisos</a>
             </div>
         </nav>
     </div>

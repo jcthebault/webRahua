@@ -36,29 +36,79 @@
                 <a class="navegacion__enlaces--link navegador__enlaces--hover" href="lista_pedidos.php">pedidos</a>
                 <a class="navegacion__enlaces--link navegador__enlaces--hover" href="ganancias.php">montos</a>
                 <a class="navegacion__enlaces--link navegador__enlaces--hover" href="novedades.php">novedades</a>
-                <a class="navegacion__enlaces--link navegador__enlaces--hover" href="sorteos.php">sorteos</a>
-                <a class="navegacion__enlaces--link navegador__enlaces--hover" href="avisos.php">avisos</a>
             </div>
         </nav>
     </div>
     <main class="main_main">
-        <div class="novedades">
-            <div class="form_cont_form">
+        <div class="novedades"><!-- NOVEDADES -->
+            <div class="div_formulario">
+            <h4>Novedades</h4>
                 <form class="form_novedades" action="../backend/php/script_carga_novedad.php" method="post">
                     <div class="titulo_importante">
                         <input type="text" name="novedad_1" id="novedad_1" placeholder="Ingrese el titulo">
                     </div>
                     <div class="cuerpo_importante">
-                        <textarea name="novedad_2" id="novedad_2" cols="65" rows="10"></textarea>
+                        <textarea name="novedad_2" id="novedad_2" cols="70" rows="5"></textarea>
                     </div>
                     <div class="btn_importante">
-                        <button>CARGAR</button>
+                        <button class="btn_general">CARGAR</button>
                     </div>
                 </form>
             </div>
-            <div class="form_table_cont">
+            <div class="scroll_tables">
                 <?php
-                include '../backend/php/script_lista_novedad.php';
+                    include '../backend/php/script_lista_novedad.php';
+                    if ($resultado->num_rows > 0) {
+                        // Comienza la tabla HTML
+                        echo '<div class="flex_table">';
+                            echo '<table class="form_table">';
+                            echo '<div class= "thead_background">';
+                            echo '<thead class="thead">';
+                            echo '<tr>';
+                            echo '<th>titulo</th>';
+                            echo '<th>cuerpo</th>';
+                            echo '<th>opcion</th>';
+                            echo '</tr>';
+                            echo '</thead>';
+                            echo '</div>';
+                            echo '<div class= "tbody_scroll">';
+                            echo '<tbody class="tbody">';
+                            while ($producto = $resultado->fetch_assoc()) {
+                                echo '<tr class="trbody">';
+                                echo '<td style="text-align:center;">' . $producto['titulo_novedad'] . '</td>';
+                                echo '<td style="text-align:center;">' . $producto['cuerpo_novedad'] . '</td>';
+                                echo '<td style="text-align:center;"><button class="btn_general"">Editar</button></td>';
+                                echo '</tr>';
+                            }
+                            echo '</tbody>';
+                            echo '</div>';
+                            echo '</table>';
+                        echo '</div>';
+                        
+                    } else {
+                        echo "No se encontraron registros en la tabla 'stock'.";
+                    }
+                    ?>
+            </div>  
+        </div>
+        <div class="sorteos"><!-- SORTEOS -->
+            <div class="div_formulario">
+            <h4>Sorteos</h4>
+                <form action="../backend/php/script_carga_sorteos.php" method="post">
+                    <div class="titulo_importante">
+                        <input type="text" name="sorteo_1" id="sorteo_1" placeholder="Ingrese el titulo">
+                    </div>
+                    <div class="cuerpo_importante">
+                        <textarea name="sorteo_2" id="sorteo_2" cols="70" rows="5"></textarea>
+                    </div>
+                    <div class="btn_importante">
+                        <button class="btn_general">CARGAR</button>
+                    </div>
+                </form>
+            </div>
+            <div class="scroll_tables">
+                <?php
+                include '../backend/php/script_lista_sorteo.php';
                 if ($resultado->num_rows > 0) {
                     // Comienza la tabla HTML
                     echo '<div class="flex_table">';
@@ -76,8 +126,8 @@
                         echo '<tbody class="tbody">';
                         while ($producto = $resultado->fetch_assoc()) {
                             echo '<tr class="trbody">';
-                            echo '<td style="text-align:center;">' . $producto['titulo_novedad'] . '</td>';
-                            echo '<td style="text-align:center;">' . $producto['cuerpo_novedad'] . '</td>';
+                            echo '<td style="text-align:center;">' . $producto['titulo_sorteo'] . '</td>';
+                            echo '<td style="text-align:center;">' . $producto['cuerpo_sorteo'] . '</td>';
                             echo '<td style="text-align:center;"><button class="btn_general"">Editar</button></td>';
                             echo '</tr>';
                         }
@@ -85,100 +135,62 @@
                         echo '</div>';
                         echo '</table>';
                     echo '</div>';
-                    
                 } else {
                     echo "No se encontraron registros en la tabla 'stock'.";
                 }
                 ?>
             </div>
         </div>
-        <div class="sorteos">
-            <form action="../backend/php/script_carga_sorteos.php" method="post">
-                <div class="titulo_importante">
-                    <input type="text" name="sorteo_1" id="sorteo_1" placeholder="Ingrese el titulo">
-                </div>
-                <div class="cuerpo_importante">
-                    <textarea name="sorteo_2" id="sorteo_2" cols="30" rows="10"></textarea>
-                </div>
-                <div class="btn_importante">
-                    <button>CARGAR</button>
-                </div>
-            </form>
-            <?php
-            include '../backend/php/script_lista_sorteo.php';
-            if ($resultado->num_rows > 0) {
-                // Comienza la tabla HTML
-                echo '<table class="form_table">';
-                echo '<div class= "thead_background">';
-                echo '<thead class="thead">';
-                echo '<tr>';
-                echo '<th>titulo</th>';
-                echo '<th>cuerpo</th>';
-                echo '<th>opcion</th>';
-                echo '</tr>';
-                echo '</thead>';
-                echo '</div>';
-                echo '<div class= "tbody_scroll">';
-                echo '<tbody class="tbody">';
-                while ($producto = $resultado->fetch_assoc()) {
-                    echo '<tr class="trbody">';
-                    echo '<td style="text-align:center;">' . $producto['titulo_sorteo'] . '</td>';
-                    echo '<td style="text-align:center;">' . $producto['cuerpo_sorteo'] . '</td>';
-                    echo '<td style="text-align:center;"><button class="btn_general"">Editar</button></td>';
-                    echo '</tr>';
-                }
-                echo '</tbody>';
-                echo '</div>';
-                echo '</table>';
-            } else {
-                echo "No se encontraron registros en la tabla 'stock'.";
-            }
-            ?>
-        </div>
-        <div class="importante">
-            <form action="../backend/php/script_carga_avisos.php" method="post">
-                    <div class="titulo_importante">
-                        <input type="text" name="aviso_1" id="aviso_1" placeholder="Ingrese el titulo">
-                    </div>
-                    <div class="cuerpo_importante">
-                        <textarea name="aviso_2" id="aviso_2" cols="30" rows="10"></textarea>
-                    </div>
-                    <div class="btn_importante">
-                        <button>CARGAR</button>
-                    </div>
-                </form>
+        <div class="importante"><!-- IMPORTANTE -->
+            <div class="div_formulario">
+            <h4>informacion importante</h4>
+                <form action="../backend/php/script_carga_avisos.php" method="post">
+                        <div class="titulo_importante">
+                            <input type="text" name="aviso_1" id="aviso_1" placeholder="Ingrese el titulo">
+                        </div>
+                        <div class="cuerpo_importante">
+                            <textarea name="aviso_2" id="aviso_2" cols="70" rows="5"></textarea>
+                        </div>
+                        <div class="btn_importante">
+                            <button class="btn_general">CARGAR</button>
+                        </div>
+                    </form>
+            </div>
+            <div class="scroll_tables">
                 <?php
-                include '../backend/php/script_lista_avisos.php';
-                if ($resultado->num_rows > 0) {
-                    // Comienza la tabla HTML
-                    echo '<table class="form_table">';
-                    echo '<div class= "thead_background">';
-                    echo '<thead class="thead">';
-                    echo '<tr>';
-                    echo '<th>titulo</th>';
-                    echo '<th>cuerpo</th>';
-                    echo '<th>opcion</th>';
-                    echo '</tr>';
-                    echo '</thead>';
-                    echo '</div>';
-                    echo '<div class= "tbody_scroll">';
-                    echo '<tbody class="tbody">';
-                    while ($producto = $resultado->fetch_assoc()) {
-                        echo '<tr class="trbody">';
-                        echo '<td style="text-align:center;">' . $producto['titulo_importante'] . '</td>';
-                        echo '<td style="text-align:center;">' . $producto['cuerpo_importante'] . '</td>';
-                        echo '<td style="text-align:center;"><button class="btn_general"">Editar</button></td>';
-                        echo '</tr>';
+                    include '../backend/php/script_lista_avisos.php';
+                    if ($resultado->num_rows > 0) {
+                        // Comienza la tabla HTML
+                        echo '<div class="flex_table">';
+                            echo '<table class="form_table">';
+                            echo '<div class= "thead_background">';
+                            echo '<thead class="thead">';
+                            echo '<tr>';
+                            echo '<th>titulo</th>';
+                            echo '<th>cuerpo</th>';
+                            echo '<th>opcion</th>';
+                            echo '</tr>';
+                            echo '</thead>';
+                            echo '</div>';
+                            echo '<div class= "tbody_scroll">';
+                            echo '<tbody class="tbody">';
+                            while ($producto = $resultado->fetch_assoc()) {
+                                echo '<tr class="trbody">';
+                                echo '<td style="text-align:center;">' . $producto['titulo_importante'] . '</td>';
+                                echo '<td style="text-align:center;">' . $producto['cuerpo_importante'] . '</td>';
+                                echo '<td style="text-align:center;"><button class="btn_general">Editar</button></td>';
+                                echo '</tr>';
+                            }
+                            echo '</tbody>';
+                            echo '</div>';
+                            echo '</table>';
+                        echo '</div>';
+                    } else {
+                        echo "No se encontraron registros en la tabla 'stock'.";
                     }
-                    echo '</tbody>';
-                    echo '</div>';
-                    echo '</table>';
-                } else {
-                    echo "No se encontraron registros en la tabla 'stock'.";
-                }
-                ?>
-        </div>
-        
+                    ?>
+            </div> 
+        </div>  
     </main>
     <div class="contenedor__footer">
         <footer class="footer">
