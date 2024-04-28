@@ -25,7 +25,7 @@ $(document).ready(function(){
                     // Manejar la respuesta del servidor
                     if (response === "success") {
                         // Si la validación es exitosa, redirigir a la página de inicio
-                        window.location.href = "../../views/inicio.php";
+                        window.location.href = "../../views/carga_productos.php";
                     } else {
                         // Si la validación falla, mostrar un mensaje de error
                         alert("Usuario o contraseña incorrectos");

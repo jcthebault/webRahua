@@ -34,7 +34,6 @@
     <div class="contenedor__navegacion">
         <nav class="navegacion">
             <div class="navegacion__enlaces">
-                <a class="navegacion__enlaces--link navegador__enlaces--hover" href="inicio.php">inicio</a>
                 <a class="navegacion__enlaces--link navegador__enlaces--hover" href="carga_productos.php">productos</a>
                 <a class="navegacion__enlaces--link navegador__enlaces--hover" href="lista_pedidos.php">pedidos</a>
                 <a class="navegacion__enlaces--link navegador__enlaces--hover" href="ganancias.php">montos</a>
