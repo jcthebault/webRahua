@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="../../assets/css/general.css">
     <link rel="stylesheet" href="../../assets/css/mq.css">
     <!--Scripts-->
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="../../assets/js/carrito.js"></script>
+    <script defer src="../../assets/js/checkout.js"></script>
     <title>Rauha!</title>
 </head>
 <body class="the_body">
@@ -66,31 +66,14 @@
             ?>
         </div>
     </nav><!--Nav-->
-    <div class="titulo">
-        <h2 class="titulo_style">carrito</h2>
-    </div>
-    <main class="mainCar">
-        <section class="comprasCarr">
-            <table id="cartTable" class="table_carr">
-                <thead class="table_thead" id="tr_body" >
-                    <tr class="tr_thead" >
-                        <th class="th_tr-thead" >Imagen</th>
-                        <th class="th_tr-thead" >Nombre</th>
-                        <th class="th_tr-thead" >Descripción</th>
-                        <th class="th_tr-thead" >Precio</th>
-                        <th class="th_tr-thead" >Cantidad</th>
-                        <th class="th_tr-thead" >Quitar</th>
-                    </tr>
-                </thead>
-                <tbody id="cartBody" class="table_tbody" >
-                    <!-- Contenido dinámico del carrito -->
+        <div class="titulo">
+            <h2 class="titulo_style">Perfil usuario</h2>
+        </div>
+    <main class="mainUser">
+        <div class="usuarioLogin">
+            <h3>Hola <b> <?php echo $_SESSION['usuario_nick'];?></b> bienvenido a tu perfil</h3>
+        </div>
 
-                    <!-- Contenido dinámico del carrito -->
-                </tbody>
-            </table>
-            <button id="btnComprar" class="btn_general" >a</button>
-        </section>
-        <!--Carrito-->
     </main>
     <footer class="footer">
         <p class="footer_parrafo">Todos los derechos reservados (R)</p>

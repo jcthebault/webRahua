@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../../assets/css/mq.css">
     <!--Scrips-->
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script type="Module" src="../../assets/js/productos.js"></script>
+    <script src="../../assets/js/productos.js"></script>
     <title>Rauha!</title>
 </head>
 <body>
@@ -50,8 +50,8 @@
             if (isset($_SESSION['usuario_nick'])) {
                 // Si el usuario ha iniciado sesión, muestra el nombre de usuario y el enlace para cerrar sesión
                 echo '<div class="usuario_logueado">';
-                echo '<span>Bienvenido, ' . $_SESSION['usuario_nick'] . '!</span>';
-                echo '<a href="backend/php/logout.php">Cerrar sesión</a>';
+                echo '<span>Bienvenido, ' . $_SESSION['usuario_nick'] . '!</span><br>';
+                echo '<a href="../../backend/php/logout.php">Cerrar sesión</a>';
                 echo '</div>';
             } else {
                 // Si el usuario no ha iniciado sesión, muestra el enlace de inicio de sesión
@@ -71,36 +71,35 @@
     </div>
     <main class="mainProd">
         <!-- I- Contenedor-->
-        <div class="contenedor_producto">
-            <!--INICIO CONTENEDOR-->
+         <div class="contenedor_producto">
+        <!--INICIO CONTENEDOR-->
             <?php
-                include '../../backend/php/script_producto.php';
+            include '../../backend/php/script_producto.php';
             if ($resultado->num_rows > 0) {
                 while ($producto = $resultado->fetch_assoc()) {
-                        echo '<div class="contenedor_php">';
-                            echo '<p class="cod_rem">Codigo: ' . $producto['id_prod'] . '</p>';
-                            echo '<p>';
-                            $icod = base64_encode($producto['image_prod']);
-                            $img = '<img class="contenedor_php--imagen" src="data:image/jpeg;base64,' . $icod . '" alt="' . $producto['nombre_prod'] . '">';
-                            echo $img;
-                            echo '</p>';
-                            echo '<h3>' . $producto['nombre_prod'] . '</h3>';
-                            echo '<p>Descripción:' . $producto['descripcion_prod'] . '</p>';
-                            echo '<p>Precio: $' . $producto['precio_prod'] . '</p>';
-                            echo '<p>Cantidad: ' . $producto['cantidad_prod'] . '</p>';
-                            echo '<form method="post">';
-                            echo '<input type="hidden" name="producto_id" value="' . $producto['id_prod'] . '">';
-                            echo '<input style="text-align: center;" type="number" name="cantidad" value="1" min="1" max="' . $producto['cantidad_prod'] . '" required>'; // Campo de entrada numérica para la cantidad
-                            echo '<button id="agregarProducto" type="submit" name="agregar_al_carrito"  class="btn__style">Agregar</button>';
-                            echo '</form>';
-                            echo '</div>';
+                    echo '<div class="contenedor_php">';
+                    echo '<p>';
+                    $icod = base64_encode($producto['image_prod']);
+                    $img = '<img class="contenedor_php--imagen" src="data:image/jpeg;base64,' . $icod . '" alt="' . $producto['nombre_prod'] . '">';
+                    echo $img;
+                    echo '</p>';
+                    echo '<h3>' . $producto['nombre_prod'] . '</h3>';
+                    echo '<p>Descripción:' . $producto['descripcion_prod'] . '</p>';
+                    echo '<p>Precio: $' . $producto['precio_prod'] . '</p>';
+                    echo '<p>Cantidad: ' . $producto['cantidad_prod'] . '</p>';
+                    echo '<form id="form_' . $producto['id_prod'] . '" method="post" action="../pages/carrito.php">';
+                    echo '<input type="hidden" name="producto_id" value="' . $producto['id_prod'] . '">';
+                    echo '<input style="text-align: center;" type="number" name="cantidad" value="1" min="1" max="' . $producto['cantidad_prod'] . '" required>'; // Campo de entrada numérica para la cantidad
+                    echo '<button type="button" onclick="agregarAlCarrito(' . $producto['id_prod'] . ')" class="btn__style">Agregar</button>';
+                    echo '</form>';
+                    echo '</div>';
                 }
             } else {
                 echo "No hay productos disponibles";
             }
             ?>
-            <!--FIN CONTENEDOR-->
-            </div>
+        <!--FIN CONTENEDOR-->
+        </div>
         <!-- F- Contendor-->
     </main>
     <footer class="footer">

@@ -51,7 +51,7 @@
             if (isset($_SESSION['usuario_nick'])) {
                 // Si el usuario ha iniciado sesión, muestra el nombre de usuario y el enlace para cerrar sesión
                 echo '<div class="usuario_logueado">';
-                echo '<span>Bienvenido, ' . $_SESSION['usuario_nick'] . '!</span>';
+                echo '<span>Bienvenido, ' . $_SESSION['usuario_nick'] . '!</span><br>';
                 echo '<a href="backend/php/logout.php">Cerrar sesión</a>';
                 echo '</div>';
             } else {

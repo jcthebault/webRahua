@@ -50,8 +50,8 @@
             if (isset($_SESSION['usuario_nick'])) {
                 // Si el usuario ha iniciado sesión, muestra el nombre de usuario y el enlace para cerrar sesión
                 echo '<div class="usuario_logueado">';
-                echo '<span>Bienvenido, ' . $_SESSION['usuario_nick'] . '!</span>';
-                echo '<a href="backend/php/logout.php">Cerrar sesión</a>';
+                echo '<span>Bienvenido, ' . $_SESSION['usuario_nick'] . '!</span><br>';
+                echo '<a href="../../backend/php/logout.php">Cerrar sesión</a>';
                 echo '</div>';
             } else {
                 // Si el usuario no ha iniciado sesión, muestra el enlace de inicio de sesión
@@ -127,7 +127,7 @@
                 </a>
             </div>
             <div class="contenedor_social">
-                <a href="http://api.whatsapp.com/send?phone=+542281568550&text=Hola Hola!!!!" target="_blank" >
+                <a href="http://api.whatsapp.com/send?phone=+541162915562&text=Hola! Como estas? Mi consulta es..." target="_blank" >
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="100" height="100" viewBox="0 0 24 24" stroke-width="1.5" stroke="#e7a3ae" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />

@@ -16,7 +16,7 @@ body{
 .navegacion,
 .footer,
 .titulo,
-.main, .mainProd, .mainCont, .mainLog, .mainReg, .mainCar {
+.main, .mainProd, .mainCont, .mainLog, .mainReg, .mainCar, .mainUser {
     margin: 2rem 10rem;
     border-radius: 1rem;
     background: var(--fondo);
