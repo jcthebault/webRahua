@@ -1,26 +1,32 @@
 <?php
 session_start();
-$host = "localhost";
-$user = "root";
-$pass = "";
-$dbase = "rauhadb";
-
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $conn = new mysqli($host,$user,$pass,$dbase);
-
-    if($conn->connect_error){
-        die("Error de conexion: " . $conn->connect_error);
+include 'database.php';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Verificar conexión
+    $conn = new mysqli($host, $user, $pass, $dbase);
+    if ($conn->connect_error) {
+        die("Error de conexión: " . $conn->connect_error);
     }
-
-    $usuario = $conn->real_escape_string($_POST['usuario_nick']);
-    $contrasena = $conn->real_escape_string($_POST['usuario_pass']);
-
-    $sql = "SELECT * FROM usuario WHERE usuario_id='$usuario' AND usuario_pass='$contrasena'";
-    $result = $conn->query($sql);
-
-    if($result->num_rows > 0){
-        $_SESSION['usuario_id']=$usuario;
-        header("location: ../../../../index.php");
+    // Escapar datos del formulario
+    $usuario = $conn->real_escape_string($_POST['usuario']);
+    $contrasena = $conn->real_escape_string($_POST['password']);
+    // Consulta SQL con consulta preparada
+    $sql = "SELECT * FROM usuario WHERE usuario_nick = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $usuario);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    // Verificar si se encontró el usuario y verificar la contraseña
+    if ($result->num_rows > 0) {
+        $fila = $result->fetch_assoc();
+        if (password_verify($contrasena, $fila['usuario_pass'])) {
+            // Iniciar sesión y redirigir al usuario
+            $_SESSION['usuario_nick'] = $usuario;
+            echo "success";
+            exit();
+        } else {
+            echo "Nombre de usuario y contraseña incorrectos";
+        }
     } else {
         echo "Nombre de usuario y contraseña incorrectos";
     }

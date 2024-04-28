@@ -12,20 +12,21 @@ $(document).ready(function(){
             alert(`Por favor, complete el/los campo/s: ${err_log.join(' y ')} correctamente.`);
             return false;
         }
-        //Solicitud de validacion de usuario
+        // Solicitud de validacion de usuario
         $.ajax({
-            url: "../../backend/php/validad_usuario.php", 
+            url: "../../backend/php/script_login.php", 
             method: "POST",
             data: {usuario: usuario, password: password},
             success: function(response){
-                alert(response);
+                if(response.trim() === "success") {
+                    window.location.href = "../../index.php";
+                } else {
+                    alert(response);
+                }
+            },
+            error: function(xhr, status, error) {
+                alert("Error en la solicitud AJAX");
             }
         });
-/* 
-        if(usuario==="pedrito" && password==="pedro123"){
-            alert(`Bienvenido ${usuario}, Que tengas un lindo día`);
-        }else{
-            alert("Usuario y/contraseña incorrectos");
-        }*/
     });
 });

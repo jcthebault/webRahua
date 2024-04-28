@@ -58,11 +58,11 @@
     <main class="mainLog">
         <!--Login-->
         <?php include '../../backend/php/script_login.php' ?>
-        <form id="log_form" class="log_form" method="POST" action="script_login.php">
+        <form id="log_form" class="log_form" method="POST" action="../../backend/php/script_login.php">
             <legend>Complete todos los campos</legend>
             <div class="flex__contenedor">
                 <input class="flex__contenedor--input" type="text" name="usuario" id="usuario" placeholder="Nombre de usuario">
-                <input class="flex__contenedor--input" type="password" name="contrasena" id="password" placeholder="ingrese contraseña">
+                <input class="flex__contenedor--input" type="password" name="password" id="password" placeholder="ingrese contraseña">
             </div>
             <div class="flex__contenedor--botones">
                 <button class="btn_general" type="submit">Iniciar sesion</button>
@@ -70,9 +70,6 @@
                 <br>
                 <p class="style_con--p" >¿No tiene cuenta?</p>
                 <a class="style_con--a" href="registro.php">Registrese aquí</a>
-            </div>
-            <div class="personalizada">
-                <!-- Alerta personalizada -->
             </div>
         </form>
         

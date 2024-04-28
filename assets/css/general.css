@@ -84,6 +84,21 @@ body{
     color:var(--negro);
     box-shadow: 0rem 0rem 2rem 0.5rem var(--sombra);
 }
+/*USUARIO*/
+.usuario_logueado{
+    background-color: var(--enlaces);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    box-shadow: 0rem 0rem 1.5rem 1rem rosybrown;
+    color:var(--blanco);
+
+}
+.usuario_logueado:hover{
+    background-color: var(--hover-enlaces);
+    color:var(--negro);
+    box-shadow: 0rem 0rem 2rem 0.5rem var(--sombra);
+}
 
 /* ********** Index ***********/
 /* ********** Index ***********/
