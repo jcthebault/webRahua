@@ -35,34 +35,17 @@
             <a class="navegacion__enlaces--link wid_nav" href="index.php">Inicio</a>
             <a class="navegacion__enlaces--link wid_nav" href="views/pages/productos.php">Productos</a>
             <a class="navegacion__enlaces--link wid_nav" href="views/forms/contacto.php">Contacto</a>
-            <a class="navegacion__enlaces--link " href="views/pages/carrito.php">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-copy" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                    <path d="M11.5 17h-5.5v-14h-2" />
-                    <path d="M6 5l14 1l-1 7h-13" />
-                    <path d="M15 19l2 2l4 -4" />
-                </svg>
-            </a>
+            <a class="navegacion__enlaces--link wid_nav" href="views/pages/carrito.php">Carrito</a>
             <!-- Cambio de icono -->
             <?php
             session_start();
             // Verificar si el usuario ha iniciado sesión
             if (isset($_SESSION['usuario_nick'])) {
                 // Si el usuario ha iniciado sesión, muestra el nombre de usuario y el enlace para cerrar sesión
-                echo '<div class="usuario_logueado">';
-                echo '<span>Bienvenido, ' . $_SESSION['usuario_nick'] . '!</span><br>';
-                echo '<a href="backend/php/logout.php">Cerrar sesión</a>';
-                echo '</div>';
+                echo '<a class="navegacion__enlaces--link wid_nav" href="views/pages/user.php" >' . $_SESSION['usuario_nick'] . '</a>';
             } else {
                 // Si el usuario no ha iniciado sesión, muestra el enlace de inicio de sesión
-                echo '<a class="navegacion__enlaces--link wid_nav-img" href="views/forms/login.php">';
-                echo '<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">';
-                echo '<path stroke="none" d="M0 0h24v24H0z" fill="none" />';
-                echo '<path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />';
-                echo '<path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />';
-                echo '</svg>';
-                echo '</a>';
+                echo '<a class="navegacion__enlaces--link wid_nav" href="views/forms/login.php">sesion</a>';
             }
             ?>
         </div>

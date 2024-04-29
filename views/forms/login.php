@@ -34,22 +34,8 @@
             <a class="navegacion__enlaces--link wid_nav" href="../../index.php">Inicio</a>
             <a class="navegacion__enlaces--link wid_nav" href="../pages/productos.php">Productos</a>
             <a class="navegacion__enlaces--link wid_nav" href="contacto.php">Contacto</a>
-                <a class="navegacion__enlaces--link wid_nav-img" href="../pages/carrito.php">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-copy" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                        <path d="M11.5 17h-5.5v-14h-2" />
-                        <path d="M6 5l14 1l-1 7h-13" />
-                        <path d="M15 19l2 2l4 -4" />
-                      </svg>
-                </a>
-                <a class="navegacion__enlaces--link wid_nav-img" href="login.php">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
-                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                    </svg>
-                </a>
+                <a class="navegacion__enlaces--link wid_nav" href="../pages/carrito.php">Carrito</a>
+                <a class="navegacion__enlaces--link wid_nav" href="login.php">sesion</a>
         </div>
     </nav><!--Nav-->
     <div class="titulo">
