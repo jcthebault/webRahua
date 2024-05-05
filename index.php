@@ -1,3 +1,4 @@
+<?php  session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,10 +36,16 @@
             <a class="navegacion__enlaces--link wid_nav" href="index.php">Inicio</a>
             <a class="navegacion__enlaces--link wid_nav" href="views/pages/productos.php">Productos</a>
             <a class="navegacion__enlaces--link wid_nav" href="views/forms/contacto.php">Contacto</a>
-            <a class="navegacion__enlaces--link wid_nav" href="views/pages/carrito.php">Carrito</a>
+            <!-- Muestra o no el carrito -->
+            <?php
+            // Verificar si el usuario ha iniciado sesión
+            if (isset($_SESSION['usuario_nick'])) {
+                // Si el usuario ha iniciado sesión, muestra el nombre de usuario y el enlace para cerrar sesión
+                echo '<a class="navegacion__enlaces--link wid_nav" href="views/pages/carrito.php">Carrito</a>';
+            } 
+            ?>
             <!-- Cambio de icono -->
             <?php
-            session_start();
             // Verificar si el usuario ha iniciado sesión
             if (isset($_SESSION['usuario_nick'])) {
                 // Si el usuario ha iniciado sesión, muestra el nombre de usuario y el enlace para cerrar sesión
