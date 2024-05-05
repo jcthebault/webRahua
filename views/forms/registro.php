@@ -1,3 +1,4 @@
+<?php  session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +38,14 @@
             <a class="navegacion__enlaces--link wid_nav" href="../../index.php">Inicio</a>
             <a class="navegacion__enlaces--link wid_nav" href="../pages/productos.php">Productos</a>
             <a class="navegacion__enlaces--link wid_nav" href="contacto.php">Contacto</a>
-            <a class="navegacion__enlaces--link wid_nav" href="../pages/carrito.php">Carrito</a>
+            <?php
+            // Verificar si el usuario ha iniciado sesión
+            if (isset($_SESSION['usuario_nick'])) {
+                // Si el usuario ha iniciado sesión, muestra el nombre de usuario y el enlace para cerrar sesión
+                echo '<a class="navegacion__enlaces--link wid_nav" href="../pages/carrito.php">Carrito</a>';
+            } 
+            ?>
+            
             <a class="navegacion__enlaces--link wid_nav" href="login.php">sesion</a>
         </div>
     </nav><!--Nav-->
