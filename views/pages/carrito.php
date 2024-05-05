@@ -64,9 +64,10 @@
                     <tr class="tr_thead">
                         <th class="th_tr-thead">Codigo</th>
                         <th class="th_tr-thead">Nombre</th>
-                        <th class="th_tr-thead">Descripción</th>
-                        <th class="th_tr-thead">Precio</th>
+                        <th class="th_tr-thead">Precio Un</th>
                         <th class="th_tr-thead">Cantidad</th>
+                        <th class="th_tr-thead">Subtotal</th>
+                        
                         <th class="th_tr-thead">Quitar</th>
                     </tr>
                 </thead>
@@ -74,9 +75,20 @@
                     <!-- Contenido dinámico del carrito -->
                 </tbody>
             </table>
-            <form method="POST" action="">
+            <div class="bajoTabla">
+                <div class="totalesTabla">
+                    <div id="totalPrecios">
+
+                    </div>
+                    <div id="totalProductos">
+
+                    </div>
+
+                </div>
+                <form method="POST" action="">
                 <button id="btnComprar" class="btn_general">a</button>
             </form>
+            </div>
         </section>
         <!--Carrito-->
     </main>

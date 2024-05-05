@@ -62,35 +62,34 @@
         <div class="contenedor_producto">
             <!--INICIO CONTENEDOR-->
             <?php
-            include '../../backend/php/script_producto.php';
-            if ($resultado->num_rows > 0) {
-                while ($producto = $resultado->fetch_assoc()) {
-                    echo '<div class="contenedor_php">';
-                    echo '<p>';
-                    $icod = base64_encode($producto['image_prod']);
-                    $img = '<img class="contenedor_php--imagen" src="data:image/jpeg;base64,' . $icod . '"
-                        alt="' . $producto['nombre_prod'] . '">';
-                    echo $img;
-                    echo '</p>';
-                    echo '<h3 id="nombreProducto">' . $producto['nombre_prod'] . '</h3>';
-                    echo '<p id="descProducto">Descripción:' . $producto['descripcion_prod'] . '</p>';
-                    echo '<p id="precioProducto">Precio: $' . $producto['precio_prod'] . '</p>';
-                    echo '<p>Cantidad: ' . $producto['cantidad_prod'] . '</p>';
-                    echo '<form id="form_' . $producto['id_prod'] . '" method="post" action="../pages/carrito.php">';
-                    echo '<input id="productoid" type="hidden" name="producto_id"
-                        value="' . $producto['id_prod'] . '">';
-                    echo '<input id="cantProducto" style="text-align: center;" type="number" name="cantidad" value="1"
-                        min="1" max="' . $producto['cantidad_prod'] . '" required>';
-                    echo '<button id="btn_agregar' . $producto['id_prod'] . '" type="button"
-                        onclick="agregarAlCarrito()" class="btn__style">Agregar</button>';
+    include '../../backend/php/script_producto.php';
+    if ($resultado->num_rows > 0) {
+        while ($producto = $resultado->fetch_assoc()) {
+            echo '<div class="contenedor_php">';
+            echo '<p id="idprod_' . $producto['id_prod'] . '">' . $producto['id_prod'] . '</p>';
+            echo '<p>';
+            $icod = base64_encode($producto['image_prod']);
+            $img = '<img class="contenedor_php--imagen" src="data:image/jpeg;base64,' . $icod . '" alt="' . $producto['nombre_prod'] . '">';
+            echo $img;
+            echo '</p>';
+            echo '<h3 id="nombreProducto_' . $producto['id_prod'] . '">' . $producto['nombre_prod'] . '</h3>';
+            echo '<p id="descProducto_' . $producto['id_prod'] . '">Descripción:' . $producto['descripcion_prod'] . '</p>';
+            echo '<p id="precioProducto_' . $producto['id_prod'] . '">$' . $producto['precio_prod'] . '</p>';
 
-                    echo '</form>';
-                    echo '</div>';
-                }
-            } else {
-                echo "No hay productos disponibles";
-            }
-            ?>
+            echo '<form id="agregar_compras_' . $producto['id_prod'] . '" method="post" action="../pages/carrito.php">';
+                echo '<button class="btn" type="button" onclick="disminuirCantidad(' . $producto['id_prod'] . ')">-</button>';
+                echo '<input id="cantProducto_' . $producto['id_prod'] . '" style="text-align: center;" type="number" name="cantidad" value="1" min="1" max="' . $producto['cantidad_prod'] . '" required>';
+                echo '<button class="btn" type="button" onclick="aumentarCantidad(' . $producto['id_prod'] . ')">+</button>';
+                echo '<button id="btn_agregar_' . $producto['id_prod'] . '" type="button" onclick="agregarAlCarrito(' . $producto['id_prod'] . ')" class="btn__style">Agregar</button>';
+            echo '</form>';
+            echo '</div>';
+        }
+    } else {
+        echo "No hay productos disponibles";
+    }
+?>
+
+
             <!--FIN CONTENEDOR-->
         </div>
         <!-- F- Contendor-->
