@@ -11,11 +11,11 @@ function actualizarTablaCarrito() {
             <td class="cartBody_td">${producto.precio}</td>
             <td class="cartBody_td">${producto.cantidad}</td>
             <td class="cartBody_td" id="subtotal">$</td>
-            <td class="cartBody_td"><button class="quitProducto" onclick="quitarDelCarrito('${producto.id}')">X</button></td>
-        `;
+            <td class="cartBody_td"><button class="quitProducto" onclick="quitarDelCarrito('${producto.id}')">X</button></td>`;
         tablaCarrito.appendChild(fila);
     });
 }
+
 //Funcion de agregar carrito
 function agregarAlCarrito(idProducto) {
     // Obtener el producto desde el DOM
@@ -45,10 +45,12 @@ function agregarAlCarrito(idProducto) {
     console.log(carrito)//Control del localStorage -> Que se cargue
 
 }
+
 //Funcion para actualizar cuando se cargue el DOM
 document.addEventListener('DOMContentLoaded', function() {
     actualizarTablaCarrito();//Actualizar la tabla
 });
+
 // Función para quitar un producto del carrito
 function quitarDelCarrito(idProducto) {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -57,8 +59,7 @@ function quitarDelCarrito(idProducto) {
     actualizarTablaCarrito();
 }
 
-
-// AUMENTO Y DISMINUCION DE CANTIDADES DE LOS PRODUCTOS
+//DISMINUCION DE CANTIDADES DE LOS PRODUCTOS
 function disminuirCantidad(idProducto) {
     const inputCantidad = document.getElementById('cantProducto_' + idProducto);
     let valorActual = parseInt(inputCantidad.value);
@@ -66,7 +67,7 @@ function disminuirCantidad(idProducto) {
         inputCantidad.value = valorActual - 1;
     }
 }
-
+//AUMENTO DE CANTIDADES DE LOS PRODUCTOS
 function aumentarCantidad(idProducto) {
     const inputCantidad = document.getElementById('cantProducto_' + idProducto);
     let valorActual = parseInt(inputCantidad.value);

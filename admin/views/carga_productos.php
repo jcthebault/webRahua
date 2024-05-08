@@ -125,7 +125,7 @@
                         echo '<td style="text-align:justify;">' . $producto['descripcion_prod'] . '</td>';
                         echo '<td style="text-align:center;">$' . $producto['precio_prod'] . '</td>';
                         echo '<td style="text-align:center;">' . $producto['cantidad_prod'] . ' unidad/es</td>';
-                        echo '<td style="text-align:center;"><button class="btn_general" onclick="openForm()">Editar</button></td>';
+                        echo '<td style="text-align:center;"><button class="btn_general" onclick="openEditForm()">Editar</button></td>';
                         echo '</tr>';
                     }
                     echo '</tbody>';
@@ -136,37 +136,43 @@
                 }
                 ?>
             </div>
-            <!--FORMULARIO DE EDICION -->
-            <div id="editPopupForm" class="popup-form-container" onclick="closeEditForm()">
-                <div class="popup-form" onclick="event.stopPropagation()">
-                    <!-- Contenido del formulario de edición -->
-                    <h2>Editar Producto</h2>
-                    <div class="id_prod">
-                        <label for="edit_producto_id">Id Producto</label>
-                        <input type="number" name="edit_producto_id" id="edit_producto_id" readonly>
-                    </div>
-                    <div class="nombre_prod">
-                        <label for="edit_nombre_prod">Nombre</label>
-                        <input type="text" name="edit_nombre_prod" id="edit_nombre_prod">
-                    </div>
-                    <div class="descripcion_prod">
-                        <label for="edit_descripcion_prod">Descripcion</label>
-                        <textarea name="edit_descripcion_prod" id="edit_descripcion_prod" cols="30" rows="10"></textarea>
-                    </div>
-                    <div class="precio_prod">
-                        <label for="edit_precio_prod">Precio $</label>
-                        <input type="number" name="edit_precio_prod" id="edit_precio_prod">
-                    </div>
-                    <div class="cantidad_prod">
-                        <label for="edit_cantidad_prod">Cantidad</label>
-                        <input type="number" name="edit_cantidad_prod" id="edit_cantidad_prod">
-                    </div>
-                    <div class="btn_prod">
-                        <button onclick="closeEditForm()">Cancelar</button>
-                        <button type="submit">Guardar</button>
+           <!--FORMULARIO DE EDICION -->
+                <div id="editPopupForm" class="popup-form-container" onclick="closeEditForm()">
+                    <div class="popup-form" onclick="event.stopPropagation()">
+                        <!-- Contenido del formulario de edición -->
+                        <h2>Editar Producto</h2>
+                        <form action="actualizar_producto.php" method="post" enctype="multipart/form-data">
+                            <div class="id_prod">
+                                <label for="edit_producto_id">Id Producto</label>
+                                <input type="number" name="edit_producto_id" id="edit_producto_id" readonly>
+                            </div>
+                            <div class="img_prod">
+                                <label for="edit_img_prod">Imagen</label>
+                                <input type="file" name="edit_img_prod" id="edit_img_prod">
+                            </div>
+                            <div class="nombre_prod">
+                                <label for="edit_nombre_prod">Nombre</label>
+                                <input type="text" name="edit_nombre_prod" id="edit_nombre_prod">
+                            </div>
+                            <div class="descripcion_prod">
+                                <label for="edit_descripcion_prod">Descripción</label>
+                                <textarea name="edit_descripcion_prod" id="edit_descripcion_prod" cols="30" rows="10"></textarea>
+                            </div>
+                            <div class="precio_prod">
+                                <label for="edit_precio_prod">Precio $</label>
+                                <input type="number" name="edit_precio_prod" id="edit_precio_prod">
+                            </div>
+                            <div class="cantidad_prod">
+                                <label for="edit_cantidad_prod">Cantidad</label>
+                                <input type="number" name="edit_cantidad_prod" id="edit_cantidad_prod">
+                            </div>
+                            <div class="btn_prod">
+                                <button onclick="closeEditForm()">Cancelar</button>
+                                <button type="submit">Guardar</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </div>
         </main>
     </div>
 
