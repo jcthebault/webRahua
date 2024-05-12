@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../../assets/css/general.css">
     <link rel="stylesheet" href="../../assets/css/mq.css">
     <!--Scripts-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="../../assets/js/producto_carro.js"></script>
@@ -75,7 +76,7 @@
                     <!-- Contenido dinámico del carrito -->
                 </tbody>
             </table>
-            <div class="bajoTabla">
+            <div class="bajoTabla"><!-- Totales -->
                 <div class="totalesTabla">
                     <div id="totalPrecios">
 
@@ -83,10 +84,9 @@
                     <div id="totalProductos">
 
                     </div>
-
                 </div>
                 <form method="POST" action="">
-                <button id="btnComprar" class="btn_general">a</button>
+                <button id="btnComprar" class="btn_general">Comprar</button>
             </form>
             </div>
         </section>

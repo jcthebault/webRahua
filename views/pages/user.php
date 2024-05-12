@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../assets/css/general.css">
     <link rel="stylesheet" href="../../assets/css/mq.css">
     <!--Scripts-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../../assets/js/carrito.js"></script>
     <script defer src="../../assets/js/checkout.js"></script>
     <title>Rauha!</title>

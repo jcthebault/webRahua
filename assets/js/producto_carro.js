@@ -3,17 +3,24 @@ function actualizarTablaCarrito() {
     const carrito = JSON.parse(localStorage.getItem('carrito')) || []; // Obtener el carrito desde localStorage
     const tablaCarrito = document.getElementById('cartBody');// Obtener el cuerpo de la tabla del carrito
     tablaCarrito.innerHTML = ''; // Limpiar el contenido actual de la tabla
-    carrito.forEach(producto => {// Iterar sobre los productos en el carrito y agregarlos a la tabla
-        const fila = document.createElement('tr');
-        fila.innerHTML = `
-            <td class="cartBody_td">${producto.id}</td>
-            <td class="cartBody_td">${producto.nombre}</td>
-            <td class="cartBody_td">${producto.precio}</td>
-            <td class="cartBody_td">${producto.cantidad}</td>
-            <td class="cartBody_td" id="subtotal">$</td>
-            <td class="cartBody_td"><button class="quitProducto" onclick="quitarDelCarrito('${producto.id}')">X</button></td>`;
-        tablaCarrito.appendChild(fila);
-    });
+
+    if(carrito.length === 0){
+        const filaMensaje =document.createElement('tr');
+        filaMensaje.innerHTML = `<td colspan="6">¡No hay productos!</td>`;
+        tablaCarrito.appendChild(filaMensaje);
+    }else{
+        carrito.forEach(producto => {// Iterar sobre los productos en el carrito y agregarlos a la tabla
+            const fila = document.createElement('tr');
+            fila.innerHTML = `
+                <td class="cartBody_td">${producto.id}</td>
+                <td class="cartBody_td">${producto.nombre}</td>
+                <td class="cartBody_td">${producto.precio}</td>
+                <td class="cartBody_td">${producto.cantidad}</td>
+                <td class="cartBody_td" id="subtotal">$</td>
+                <td class="cartBody_td"><button class="quitProducto" onclick="quitarDelCarrito('${producto.id}')">X</button></td>`;
+            tablaCarrito.appendChild(fila);
+        });
+    }
 }
 
 //Funcion de agregar carrito
@@ -42,6 +49,12 @@ function agregarAlCarrito(idProducto) {
 
     // Guardar el carrito actualizado en localStorage
     localStorage.setItem('carrito', JSON.stringify(carrito));
+    Swal.fire({
+        icon: 'success',
+        title: '¡Producto agregado!',
+        confirmButtonText: 'Gracias',
+        timer: 1500 // Duración del mensaje emergente en milisegundos
+    });
     console.log(carrito)//Control del localStorage -> Que se cargue
 
 }
