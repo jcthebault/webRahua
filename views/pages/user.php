@@ -56,6 +56,14 @@
     <main class="mainUser">
         <div class="usuarioLogin">
             <h3>Hola <i> <?php echo $_SESSION['usuario_nick'];?></i> bienvenido a tu perfil</h3>
+            <main>
+                <div class="datosPersonales">
+                    <h2>Datos personales</h2>
+                </div>
+                <div class="historialCompras">
+                    <h2>Historial</h2>
+                </div>
+            </main>
             <a href="../../backend/php/logout.php">Cerrar Sesion</a>
         </div>
         <div class="datosPersonales">

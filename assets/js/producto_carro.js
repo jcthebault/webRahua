@@ -6,7 +6,7 @@ function actualizarTablaCarrito() {
 
     if(carrito.length === 0){
         const filaMensaje =document.createElement('tr');
-        filaMensaje.innerHTML = `<td colspan="6">¡No hay productos!</td>`;
+        filaMensaje.innerHTML = `<td class="carroVacio" colspan="6">¡No hay productos!</td>`;
         tablaCarrito.appendChild(filaMensaje);
     }else{
         carrito.forEach(producto => {// Iterar sobre los productos en el carrito y agregarlos a la tabla
@@ -16,10 +16,11 @@ function actualizarTablaCarrito() {
                 <td class="cartBody_td">${producto.nombre}</td>
                 <td class="cartBody_td">${producto.precio}</td>
                 <td class="cartBody_td">${producto.cantidad}</td>
-                <td class="cartBody_td" id="subtotal">$</td>
+                <td class="cartBody_td" id="subtotal">$(despues lo veo)</td>
                 <td class="cartBody_td"><button class="quitProducto" onclick="quitarDelCarrito('${producto.id}')">X</button></td>`;
             tablaCarrito.appendChild(fila);
         });
+        
     }
 }
 
@@ -55,7 +56,7 @@ function agregarAlCarrito(idProducto) {
         confirmButtonText: 'Gracias',
         timer: 1500 // Duración del mensaje emergente en milisegundos
     });
-    console.log(carrito)//Control del localStorage -> Que se cargue
+    //(console.log(carrito)//Control del localStorage -> Que se cargue
 
 }
 

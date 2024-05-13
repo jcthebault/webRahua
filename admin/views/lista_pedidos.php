@@ -36,7 +36,7 @@
                 <a class="navegacion__enlaces--link navegador__enlaces--hover" href="carga_productos.php">productos</a>
                 <a class="navegacion__enlaces--link navegador__enlaces--hover" href="lista_pedidos.php">pedidos</a>
                 <a class="navegacion__enlaces--link navegador__enlaces--hover" href="ganancias.php">montos</a>
-                <a class="navegacion__enlaces--link navegador__enlaces--hover" href="novedades.php">novedades</a>
+                <a class="navegacion__enlaces--link navegador__enlaces--hover" href="novedades.php">mas</a>
             </div>
         </nav>
     </div>

@@ -1,25 +1,39 @@
 $(document).ready(function(){
     $("#form_cont").submit(function(e){
-        e.preventDefault();
-        const nombre = $("#nombre").val();
-        const apellido = $("#apellido").val();
-        const correo = $("#correo").val();
-        const telefono = $("#telefono").val();
-        const asunto = $("#asunto").val();
-        const mensaje = $("#mensaje").val();
+        e.preventDefault(); // Evita que el formulario se envíe automáticamente
+
+        // Obtener los valores de los campos del formulario
+        const nombre = $("#nombre").val().trim();
+        const apellido = $("#apellido").val().trim();
+        const correo = $("#correo").val().trim();
+        const telefono = $("#telefono").val().trim();
+        const asunto = $("#asunto").val().trim();
+        const mensaje = $("#mensaje").val().trim();
         const error = [];
 
-        if(!$.trim(nombre))error.push(`"Nombre"`);
-        if(!$.trim(apellido))error.push(`"Apellido"`);
-        if(!$.trim(correo))error.push(`"Correo"`);
-        if(!$.trim(telefono))error.push(`"Telefono"`);
-        if(!$.trim(asunto))error.push(`"Asunto"`);
-        if(!$.trim(mensaje))error.push(`"Mensaje"`);
+        // Validar que los campos no estén vacíos
+        if(!nombre) error.push("Nombre");
+        if(!apellido) error.push("Apellido");
+        if(!correo) error.push("Correo");
+        if(!telefono) error.push("Teléfono");
+        if(!asunto) error.push("Asunto");
+        if(!mensaje) error.push("Mensaje");
 
         if(error.length){
-            alert(`Por favor, debes completar lo siguente: ${error.map((e) => `\n-${e}` )}`);
-            return false;
+            // Construir el mensaje de error
+            const errorMessage =error.map((e) => `\n ${e}`).join('');
+
+            // Mostrar mensaje de advertencia con SweetAlert
+            Swal.fire({
+                icon: 'info',
+                title: 'Por favor, complete los siguientes campos:',
+                text: errorMessage,
+                confirmButtonText: 'Gracias',
+            });
+            return false; // Evitar que se envíe el formulario
         }
-        alert(`${nombre},\n el formulario ha sido enviado con exito, muchas gracias`);
+
+        // Si no hay errores, mostrar mensaje de éxito
+        alert(`${nombre},\n el formulario ha sido enviado con éxito, muchas gracias`);
     });
-} );
+});

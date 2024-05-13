@@ -38,7 +38,7 @@
                 <a class="navegacion__enlaces--link navegador__enlaces--hover" href="carga_productos.php">productos</a>
                 <a class="navegacion__enlaces--link navegador__enlaces--hover" href="lista_pedidos.php">pedidos</a>
                 <a class="navegacion__enlaces--link navegador__enlaces--hover" href="ganancias.php">montos</a>
-                <a class="navegacion__enlaces--link navegador__enlaces--hover" href="novedades.php">novedades</a>
+                <a class="navegacion__enlaces--link navegador__enlaces--hover" href="novedades.php">mas</a>
             </div>
         </nav>
     </div>
@@ -62,11 +62,11 @@
                 }
                 ?>
                 <form class="grid_form" action="../backend/php/script_carga_producto.php" method="post" enctype="multipart/form-data">
-                    <!--
+
                     <div class="id_prod">
                         <label for="producto_id">Id Producto</label>
                         <input type="number" name="producto_id" id="producto_id">
-                    </div>-->
+                    </div>
                     <div class="img_prod">
                         <label for="producto_id">Imagen</label>
                         <input type="file" name="img_prod" id="img_prod">
@@ -108,7 +108,7 @@
                     echo '<th>Descripción</th>';
                     echo '<th>Precio</th>';
                     echo '<th>Cantidad</th>';
-                    echo '<th>Editar</th>';
+                    echo '<th>Opciones</th>';
                     echo '</tr>';
                     echo '</thead>';
                     echo '</div>';
@@ -116,17 +116,22 @@
                     echo '<tbody class="tbody">';
                     while ($producto = $resultado->fetch_assoc()) {
                         echo '<tr class="trbody">';
-                        echo '<td style="text-align:center;">' . $producto['id_prod'] . '</td>';
+                        echo '<td id="producto_id' . $producto['id_prod'] . '" style="text-align:center;">' . $producto['id_prod'] . '</td>';
                         echo '<td style="text-align:center;">';
                         $icod = base64_encode($producto['image_prod']);
                         $img = '<img class="contenedor_php--imagen" src="data:image/jpeg;base64,' . $icod . '" alt="' . $producto['nombre_prod'] . '">';
                         echo $img;
                         echo '</td>';
-                        echo '<td style="text-align:center;">' . $producto['nombre_prod'] . '</td>';
-                        echo '<td style="text-align:justify;">' . $producto['descripcion_prod'] . '</td>';
-                        echo '<td style="text-align:center;">$' . $producto['precio_prod'] . '</td>';
-                        echo '<td style="text-align:center;">' . $producto['cantidad_prod'] . ' unidad/es</td>';
-                        echo '<td style="text-align:center;"><button class="btn_general" onclick="openEditForm(' . $producto['id_prod'] . ')">Editar</button></td>';
+                        echo '<td id="nombre_prod' . $producto['id_prod'] . '"  style="text-align:center;">' . $producto['nombre_prod'] . '</td>';
+                        echo '<td id="descripcion_prod' . $producto['id_prod'] . '" style="text-align:justify;">' . $producto['descripcion_prod'] . '</td>';
+                        echo '<td id="precio_prod' . $producto['id_prod'] . '" style="text-align:center;">$' . $producto['precio_prod'] . '</td>';
+                        echo '<td id="cantidad_prod' . $producto['id_prod'] . '" style="text-align:center;">' . $producto['cantidad_prod'] . ' unidad/es</td>';
+
+                            echo '<td style="text-align:center;">
+                                <button class="btn_general" onclick="openEditForm(' . $producto['id_prod'] . ')">Editar</button>
+                                <button class="btn_general" onclick="quitarProducto(' . $producto['id_prod'] . ')">Eliminar</button>
+                            </td>';
+
                         echo '</tr>';
                     }
                     echo '</tbody>';

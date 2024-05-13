@@ -30,14 +30,11 @@ html{
 /*carga_productos.PHP MAIN*/
 .mainProd{
     display: grid;
-    grid-template-columns: repeat(3, 1fr)
-}
-.form_prod{
-    grid-column: 1/2;
+    grid-template-columns: repeat(5, 1fr);
 }
 
 .table_prod{
-    grid-column: 2/4;
+    grid-column: 2/6;
 }
 .form_prod{
     background-color: rgb(82, 50, 92);
@@ -50,10 +47,59 @@ html{
     padding: 2rem;
     height: 55rem;
 }
+.opciones_productos{
+    display: flex;
+    flex-direction: column;
+}
+.swal2-popup, .swal2-modal, .swal-wide, .swal2-show{
+    width: 40rem;
+    background-color:rgba(179, 114, 170, 0.719);
+    padding: 1rem;
+}
+.swal2-close{
+    visibility: hidden;
+}
+.formEmergente_div {
+    background-color:rgba(151, 30, 135, 0.719);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 0 auto;
+}
+.formEmergente input, textarea{
+    padding: 0.5rem 1rem;
+}
+.formEmergente label, h3{
+    color: var(--blanco);
+}
+.id_prod, .nombre_prod, .descripcion_prod, .precio_prod, .cantidad_prod{
+    display: flex;
+    flex-direction: column;
+}
+.btn-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between; 
+    margin-top: 2rem;
+}
+
+
+.grid_form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.nombre_prod {
+    grid-column: 1 / 3;
+}
+.descripcion_prod {
+    grid-column: 1 / 3;
+}
+.btn_prod{
+    grid-column: 2 / 3;
+}
 .grid_form div{
     display: flex;
     flex-direction: column;
-    padding-top: 1rem;
+    padding: 0.5rem;
 }
 .id_search{
     margin: 0 2rem;
@@ -123,13 +169,48 @@ html{
 /*novedades_index*/
 .main_main{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+}
+.botonesSelectores{
+    grid-row: 1;
+    grid-column: 1/3;
+}
+.contenedorFlex{
+    display: flex;
+    justify-content: center;
+}
+.botonSelector{
+    background-color:hsl(286, 30%, 28%);
+    width: 100%;
+    height: 10rem;
+    font-size: 4rem;
+    color: bisque;
+}
+.botonSelector:hover{
+    background-color: rgb(173, 89, 184);
+    color: white;
+}
+#contenedorNovedades, #contenedorSorteos, #contenedorInformacionImportante{
+    margin: 1rem;
+    grid-row: 2;
+    grid-column: 1/3;
 }
 .novedades, .sorteos, .importante{
-    margin: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.scroll_tables{
+    grid-column: 2/4 ;
+}
+.eliminador_10 p, .swal2-title{
+    color: var(--blanco);
+    font-size: 3rem;
+}
+.swal2-actions{
+    font-size: 3rem;
 }
 .div_formulario{
-    background-color: rgb(82, 50, 92);
+    background-color: hsl(286, 30%, 28%);
     border-radius: 1rem;
     margin-bottom: 0.5rem;
     padding-bottom: 0.5rem;
@@ -137,6 +218,10 @@ html{
 .div_formulario h4, form{
     text-align: center;
     padding:0 1rem;
+}
+.div_formulario h4{
+    font-size: 8rem;
+    padding-bottom: 2rem;
 }
 .div_formulario input, textarea{
     width: 100%;
@@ -174,7 +259,7 @@ html{
 
 .scroll_tables::-webkit-scrollbar-thumb {
     background: rgba(139, 60, 150, 0.712);
-    border-radius: 1rem;
+    border-radius: rem;
 }
 /*BOTONES*/
 /*IMPUTS*/
@@ -199,7 +284,9 @@ input[type=number]::-webkit-outer-spin-button {
     appearance: none;
     text-align: center;
 }
-
+.btn_general:hover{
+    background-color: rgb(97, 28, 28);
+}
 .btn_general-1{
     padding: 0.5rem;
     width: 100%;
@@ -212,6 +299,8 @@ input[type=number]::-webkit-outer-spin-button {
     appearance: none;
     text-align: center;
 }
-
+.btn_general-1:hover{
+    background-color: rgb(97, 28, 28);
+}
 
 

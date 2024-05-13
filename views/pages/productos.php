@@ -84,10 +84,15 @@
             echo '<p id="precioProducto_' . $producto['id_prod'] . '">$' . $producto['precio_prod'] . '</p>';
 
             echo '<form id="agregar_compras_' . $producto['id_prod'] . '" method="post" action="../pages/carrito.php">';
+            if (isset($_SESSION['usuario_nick'])) {
                 echo '<button class="btn" type="button" onclick="disminuirCantidad(' . $producto['id_prod'] . ')">-</button>';
                 echo '<input id="cantProducto_' . $producto['id_prod'] . '" style="text-align: center;" type="number" name="cantidad" value="1" min="1" max="' . $producto['cantidad_prod'] . '" required>';
                 echo '<button class="btn" type="button" onclick="aumentarCantidad(' . $producto['id_prod'] . ')">+</button>';
                 echo '<button id="btn_agregar_' . $producto['id_prod'] . '" type="button" onclick="agregarAlCarrito(' . $producto['id_prod'] . ')" class="btn__style">Agregar</button>';
+            } else {
+                echo '<p>Inicie sesión</p>';
+            }
+                
             echo '</form>';
             echo '</div>';
         }

@@ -7,9 +7,7 @@
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Anta&family=Lemon&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Salsa&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anta&family=Lemon&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Salsa&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <!--Style Sheets-->
     <link rel="stylesheet" href="../../assets/css/main.css">
@@ -17,9 +15,9 @@
     <link rel="stylesheet" href="../../assets/css/mq.css">
     <!--Scripts-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="../../assets/js/producto_carro.js"></script>
+    <script src="../../assets/js/enviar_pedido.js"></script>
     <title>Rauha!</title>
 </head>
 
@@ -60,35 +58,34 @@
     </div>
     <main class="mainCar">
         <section class="comprasCarr">
-            <table id="cartTable" class="table_carr">
-                <thead class="table_thead" id="tr_body">
-                    <tr class="tr_thead">
-                        <th class="th_tr-thead">Codigo</th>
-                        <th class="th_tr-thead">Nombre</th>
-                        <th class="th_tr-thead">Precio Un</th>
-                        <th class="th_tr-thead">Cantidad</th>
-                        <th class="th_tr-thead">Subtotal</th>
-                        
-                        <th class="th_tr-thead">Quitar</th>
-                    </tr>
-                </thead>
-                <tbody id="cartBody" class="table_tbody">
-                    <!-- Contenido dinámico del carrito -->
-                </tbody>
-            </table>
-            <div class="bajoTabla"><!-- Totales -->
-                <div class="totalesTabla">
-                    <div id="totalPrecios">
+            <form class="formulario_compras" method="POST" action="../../backend/php/script_carro.php">
+                <table id="cartTable" class="table_carr">
+                    <thead class="table_thead" id="tr_body">
+                        <tr class="tr_thead">
+                            <th class="th_tr-thead">Codigo</th>
+                            <th class="th_tr-thead">Nombre</th>
+                            <th class="th_tr-thead">$. Unitario</th>
+                            <th class="th_tr-thead">Cantidad</th>
+                            <th class="th_tr-thead">Subtotal</th>
+                            <th class="th_tr-thead">Quitar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cartBody" class="table_tbody">
+                        <!-- Contenido dinámico del carrito -->
+                    </tbody>
+                </table>
+                <div class="bajoTabla"><!-- Totales -->
+                    <div class="totalesTabla">
+                        <div id="totalPrecios">
 
-                    </div>
-                    <div id="totalProductos">
+                        </div>
+                        <div id="totalProductos">
 
-                    </div>
+                        </div>
+                    </div><!-- Totales -->
                 </div>
-                <form method="POST" action="">
-                <button id="btnComprar" class="btn_general">Comprar</button>
+                    <button id="btnComprar" type="submit" class="btn_general">Comprar</button>
             </form>
-            </div>
         </section>
         <!--Carrito-->
     </main>

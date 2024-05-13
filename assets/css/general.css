@@ -411,15 +411,22 @@ input[type=number]::-webkit-outer-spin-button {
 /* ********** CARRITO ***********/
 /* ********** CARRITO ***********/
 /*          .mainCar        */
+.formulario_compras{
+    padding:1rem;
+}
+.carroVacio{
+    padding: 2rem;
+    font-size: 5rem;
+}
 .the_body{
     height: 100%;
 }
 .table_carr {
     margin: 0 auto;
-    background-color: rgb(71, 29, 75);
+    background-color: rgb(145, 118, 137);
 }
 .tr_thead{
-    background-color: brown; 
+    background-color: rgb(233, 159, 159); 
 }
 .th_tr-thead{
     width: 20rem;
