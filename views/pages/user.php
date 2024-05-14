@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,10 +15,10 @@
     <link rel="stylesheet" href="../../assets/css/mq.css">
     <!--Scripts-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../../assets/js/carrito.js"></script>
-    <script defer src="../../assets/js/checkout.js"></script>
+    <script src="../../assets/js/enviar_pedido.js"></script>
     <title>Rauha!</title>
 </head>
+
 <body class="the_body">
     <header class="header header_grid">
         <div class="header__img">
@@ -28,14 +29,14 @@
                 <h1 class="header__titulo lemon">Rauha!</h1>
                 <p class="header__subtitulo salsa">Maquillaje y cuidado personal</p>
             </div>
-        </div>        
+        </div>
     </header><!--Header-->
     <nav class="navegacion">
         <div class="navegacion__enlaces">
             <a class="navegacion__enlaces--link wid_nav" href="../../index.php">Inicio</a>
             <a class="navegacion__enlaces--link wid_nav" href="../pages/productos.php">Productos</a>
             <a class="navegacion__enlaces--link wid_nav" href="../forms/contacto.php">Contacto</a>
-                <a class="navegacion__enlaces--link wid_nav" href="../pages/carrito.php">carrito</a>
+            <a class="navegacion__enlaces--link wid_nav" href="../pages/carrito.php">carrito</a>
             <!-- Cambio de icono -->
             <?php
             session_start();
@@ -50,31 +51,86 @@
             ?>
         </div>
     </nav><!--Nav-->
-        <div class="titulo">
-            <h2 class="titulo_style">Perfil usuario</h2>
-        </div>
+    <div class="titulo">
+        <h2 class="titulo_style">Perfil usuario</h2>
+    </div>
     <main class="mainUser">
         <div class="usuarioLogin">
-            <h3>Hola <i> <?php echo $_SESSION['usuario_nick'];?></i> bienvenido a tu perfil</h3>
+            <h3>Hola<i><?php echo $_SESSION['usuario_nick']; ?></i></h3>
             <main>
                 <div class="datosPersonales">
                     <h2>Datos personales</h2>
+                    <form action="../../backend/php/actualizar_perfil.php" method="POST">
+                        <?php include '../../backend/php/obtener_perfil.php'; ?>
+                        <div class="campoEdicion">
+                            <label for="apellido">Apellido:</label>
+                            <input type="text" id="apellido" name="apellido" value="<?php echo $usuario_apellido; ?>">
+                        </div>
+                        <div class="campoEdicion">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" value="<?php echo $usuario_nombre; ?>">
+                        </div>
+                        <div class="campoEdicion">
+                            <label for="correo">Correo electrónico:</label>
+                            <input type="email" id="correo" name="correo" value="<?php echo $usuario_correo; ?>">
+                        </div>
+                        <div class="campoEdicion">
+                            <label for="telefono">Teléfono:</label>
+                            <input type="text" id="telefono" name="telefono" value="<?php echo $usuario_telefono; ?>">
+                        </div>
+                        <div class="campoEdicion">
+                            <label for="direccion">Dirección:</label>
+                            <input type="text" id="direccion" name="direccion" value="<?php echo $usuario_direccion; ?>">
+                        </div>
+                        <div class="campoEdicion">
+                            <label for="numcasa">Número de casa:</label>
+                            <input type="text" id="numcasa" name="numcasa" value="<?php echo $usuario_numcasa; ?>">
+                        </div>
+                        <div class="campoEdicion">
+                            <label for="localidad">Localidad:</label>
+                            <input type="text" id="localidad" name="localidad" value="<?php echo $usuario_localidad; ?>">
+                        </div>
+                        <div class="campoEdicion">
+                            <label for="partido">Partido:</label>
+                            <input type="text" id="partido" name="partido" value="<?php echo $usuario_partido; ?>">
+                        </div>
+                        <div class="campoEdicion">
+                            <label for="provincia">Provincia:</label>
+                            <input type="text" id="provincia" name="provincia" value="<?php echo $usuario_provincia; ?>">
+                        </div>
+                        <input type="submit" value="Actualizar Datos">
+                    </form>
+
                 </div>
                 <div class="historialCompras">
-                    <h2>Historial</h2>
+                    <h2>Historial de Compras</h2>
+                    <?php
+                    include '../../backend/php/script_user.php';
+                    echo '<div class="div_historial">';
+                        if (mysqli_num_rows($resultado_carrito) > 0) {
+
+                            echo "<div>";
+                            while ($fila_carrito = mysqli_fetch_assoc($resultado_carrito)) {
+                                echo "<div>" . $fila_carrito['nombre_prod'] . " - $" . $fila_carrito['precio_prod'] . "</div>";
+                            }
+                            echo "</div>";
+                        } else {
+                            echo "El usuario no tiene productos en el carrito.";
+                        }
+                    echo "</div>";
+                    ?>
                 </div>
             </main>
             <a href="../../backend/php/logout.php">Cerrar Sesion</a>
         </div>
         <div class="datosPersonales">
-            
         </div>
-
     </main>
     <footer class="footer">
         <p class="footer_parrafo">Todos los derechos reservados (R)</p>
         <span class="footer__parrafo--nombre">Carolina</span>
     </footer>
-    
+
 </body>
+
 </html>

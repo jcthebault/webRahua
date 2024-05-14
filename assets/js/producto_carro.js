@@ -91,3 +91,6 @@ function aumentarCantidad(idProducto) {
     }
 }
 
+function vaciarCarrito() {
+    localStorage.removeItem('carrito');
+};

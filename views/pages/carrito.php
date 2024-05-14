@@ -58,7 +58,7 @@
     </div>
     <main class="mainCar">
         <section class="comprasCarr">
-            <form class="formulario_compras" method="POST" action="../../backend/php/script_carro.php">
+            <form class="formulario_compras" method="POST" action="../../backend/php/script_carro.php"></form>
                 <table id="cartTable" class="table_carr">
                     <thead class="table_thead" id="tr_body">
                         <tr class="tr_thead">
@@ -84,7 +84,8 @@
                         </div>
                     </div><!-- Totales -->
                 </div>
-                    <button id="btnComprar" type="submit" class="btn_general">Comprar</button>
+                <button id="btnComprar" type="button" class="btn_general">Comprar</button>
+                <button id="vaciar-carrito-btn" onclick="vaciarCarrito()" type="button " class="btn_general">Vaciar Carrito</button>
             </form>
         </section>
         <!--Carrito-->
