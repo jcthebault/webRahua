@@ -19,7 +19,7 @@ $(document).ready(function(){
             // Si no hay errores, enviar los datos del formulario al servidor para validación
             $.ajax({
                 type: "POST",
-                url: "backend/php/script_login.php",
+                url: "../../backend/php/script_login.php",
                 data: $("#formulario").serialize(), // Serializar los datos del formulario
                 success: function(response) {
                     // Manejar la respuesta del servidor
