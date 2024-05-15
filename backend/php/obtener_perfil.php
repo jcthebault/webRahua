@@ -11,9 +11,7 @@ if(isset($_SESSION["usuario_nick"])) {
     $stmt->execute();
     $resultado = $stmt->get_result();
     
-    // Verificar si se encontraron resultados
     if ($resultado->num_rows > 0) {
-        // Obtener los datos del usuario
         $fila = $resultado->fetch_assoc();
         $usuario_id = $fila["usuario_id"];
         $usuario_apellido = $fila["usuario_apellido"];
@@ -26,12 +24,9 @@ if(isset($_SESSION["usuario_nick"])) {
         $usuario_partido = $fila["usuario_partido"];
         $usuario_provincia = $fila["usuario_provincia"];
     } else {
-        // No se encontraron datos del usuario
         echo "No se encontraron datos del usuario.";
     }
 
-    // Cerrar la consulta
     $stmt->close();
-
 }
     ?>

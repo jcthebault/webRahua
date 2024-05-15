@@ -22,6 +22,17 @@ body{
     background: var(--fondo);
     color: var(--blanco);
 }
+.titulo{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.titulo_style{
+    grid-column: 1/4;
+}
+.logout_style{
+    text-align: center;
+    margin: 0 auto;
+}
 .titulo_style{
     margin: 0 auto;
     text-align: center;
@@ -423,10 +434,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .table_carr {
     margin: 0 auto;
-    background-color: rgb(145, 118, 137);
+    background-color: rgb(182, 43, 113);
 }
-.tr_thead{
+table_theadd{
     background-color: rgb(233, 159, 159); 
+    border-radius: 1rem;
 }
 .th_tr-thead{
     width: 20rem;
@@ -440,12 +452,57 @@ input[type=number]::-webkit-outer-spin-button {
     height: 5rem;
 }
 
-.usuarioLogin{
-    margin-left: 2rem;
+
+
+/*          USER            */
+.formUser{
+    padding: 2rem;
 }
-.div_historial{
-    background-color: rosybrown;
-    margin-left: 3rem;
+.usuarioLogin{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+}
+.datosPersonales, .historialCompras{
+    border: 1rem solid rgb(187, 137, 137);
+    margin: 2rem;
+}
+.datosPersonales h2{
+    text-align: center;
+}
+.historialCompras h2{
+    text-align: center;
+    margin: 2rem;
+}
+.swal2-title{
+    font-size: 3rem;
+}
+.swal2-html-container{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+
+
+}
+.contenedor_historial{
+    background-color: red;
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+.campoEdicion{
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+
+}
+.campoEdicion label{
+    font-size: 3rem;
+
+}
+.campoEdicion input{
+    font-size: 2rem;
+    height: 3rem;
 }
 
 

@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("ssssssssss", $apellido, $nombre, $correo, $telefono, $direccion, $numcasa, $localidad, $partido, $provincia, $usuario_nick);
 
     if ($stmt->execute()) {
-        header("../../views/pages/user.php");
+        header("Location: ../../views/pages/user.php");
         
     } else {
         echo "Error al actualizar los datos: " . $stmt->error;
