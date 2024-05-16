@@ -76,7 +76,7 @@
                         echo '</div>';
                     }
                 } else {
-                    echo "No se encontraron registros en la sección IMPORTANTE.";
+                    echo "No se encontraron registros en la sección: IMPORTANTE.";
                 }
 
                 ?>
